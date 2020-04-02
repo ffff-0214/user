@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
+import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -31,7 +32,7 @@ public class UserServiceImpl implements UserService{
         String openid = userInfo.getString("openid");
 
         //看redis
-        if(redisUtils.get(rd3session).isEmpty()){
+        if(redisUtils.get(rd3session) == null){
             redisUtils.set(rd3session, openid, 1, TimeUnit.DAYS);
             //看数据库
             if(userMapper.selectByPrimaryKey(openid) == null){
