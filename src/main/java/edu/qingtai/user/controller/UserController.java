@@ -7,6 +7,10 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {
@@ -31,7 +35,8 @@ public class UserController {
     }
 
     @GetMapping(value = "/yhf")
-    public void test(){
+    public void test(HttpServletResponse httpServletResponse){
+//        httpServletResponse.addCookie(new Cookie("boolean", "true/false"));
         userService.test();
     }
 

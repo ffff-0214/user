@@ -48,6 +48,6 @@
 
         <!-- 指定数据库表tableName -->
         <table schema="" tableName="user"> </table>
-
+        <table schema="" tableName="image"> </table>
     </context>
 </generatorConfiguration>
